@@ -29,24 +29,47 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);min-height:100vh;color:var(--text)}
 
 /* ===== LOGIN ===== */
-#loginPage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem}
-.login-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--rl);padding:2.5rem 2rem;width:100%;max-width:360px;animation:up .35s ease}
-@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.brand{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
-.brand-icon{width:44px;height:44px;background:var(--text);border-radius:11px;display:flex;align-items:center;justify-content:center;color:var(--surface);font-size:22px;flex-shrink:0}
-.brand-name{font-size:17px;font-weight:600}
-.brand-sub{font-size:12px;color:var(--text2);margin-top:2px}
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+#loginPage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:#0d1f14;position:relative;overflow:hidden}
+#loginPage::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 60% at 20% 50%,rgba(34,197,94,0.08) 0%,transparent 70%),radial-gradient(ellipse 50% 70% at 80% 30%,rgba(16,185,129,0.06) 0%,transparent 70%);pointer-events:none}
+.login-card{background:#ffffff;border-radius:24px;padding:2.5rem 2rem;width:100%;max-width:380px;animation:up .5s ease;box-shadow:0 32px 80px rgba(0,0,0,0.5);position:relative;z-index:1}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.arabic-top{text-align:center;margin-bottom:1.4rem}
+.arabic-basmala{font-family:'Amiri',serif;font-size:21px;color:#16a34a;letter-spacing:1px;line-height:1.6;direction:rtl}
+.arabic-words{display:none}
+.arabic-float{position:fixed;font-family:'Amiri',serif;direction:rtl;color:rgba(34,197,94,0.18);pointer-events:none;user-select:none;z-index:0}
+.af1{top:5%;left:2%;font-size:52px;transform:rotate(-12deg);animation:drift1 9s ease-in-out infinite}
+.af2{top:8%;right:3%;font-size:46px;transform:rotate(8deg);animation:drift2 11s ease-in-out infinite}
+.af3{bottom:14%;left:1%;font-size:58px;transform:rotate(6deg);animation:drift1 13s ease-in-out infinite}
+.af4{bottom:6%;right:2%;font-size:50px;transform:rotate(-9deg);animation:drift2 10s ease-in-out infinite}
+.af5{top:42%;left:0%;font-size:44px;transform:rotate(15deg);animation:drift1 14s ease-in-out infinite}
+.af6{top:35%;right:1%;font-size:48px;transform:rotate(-6deg);animation:drift2 8s ease-in-out infinite}
+.af7{bottom:38%;left:3%;font-size:40px;transform:rotate(10deg);animation:drift1 12s ease-in-out infinite}
+.af8{top:68%;right:4%;font-size:44px;transform:rotate(-14deg);animation:drift2 10s ease-in-out infinite}
+.af-madinam{top:30%;left:50%;transform:translateX(-50%);font-size:64px;color:rgba(34,197,94,0.28);animation:cloud 16s ease-in-out infinite;text-shadow:0 0 40px rgba(34,197,94,0.15)}
+.af-nur{top:55%;left:50%;transform:translateX(-50%);font-size:56px;background:linear-gradient(135deg,#ffffff,#4ade80,#ffffff,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:cloud 18s ease-in-out infinite reverse;filter:drop-shadow(0 0 12px rgba(74,222,128,0.4))}
+@keyframes drift1{0%,100%{transform:translateY(0px) rotate(-12deg)}50%{transform:translateY(-18px) rotate(-10deg)}}
+@keyframes drift2{0%,100%{transform:translateY(0px) rotate(8deg)}50%{transform:translateY(-22px) rotate(10deg)}}
+@keyframes cloud{0%{transform:translateX(-60px);opacity:0.15}25%{opacity:0.28}50%{transform:translateX(60px);opacity:0.22}75%{opacity:0.28}100%{transform:translateX(-60px);opacity:0.15}}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:1.4rem;justify-content:center}
+.brand-icon{width:46px;height:46px;background:linear-gradient(135deg,#16a34a,#22c55e);border-radius:13px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;flex-shrink:0;box-shadow:0 4px 14px rgba(22,163,74,0.35)}
+.brand-name{font-size:17px;font-weight:700;color:#111}
+.brand-sub{font-size:12px;color:#6b7280;margin-top:2px}
 .fg{margin-bottom:1rem}
-.fg label{display:block;font-size:13px;color:var(--text2);margin-bottom:5px;font-weight:500}
-.fg input{width:100%;padding:10px 14px;border:0.5px solid var(--border2);border-radius:var(--r);background:var(--surface2);color:var(--text);font-size:15px;outline:none;transition:border-color .2s}
-.fg input:focus{border-color:var(--accent)}
-.btn-primary{width:100%;padding:11px;background:var(--text);color:var(--surface);border:none;border-radius:var(--r);font-size:15px;font-weight:500;cursor:pointer;margin-top:.5rem;transition:opacity .2s}
-.btn-primary:hover{opacity:.8}
-.btn-primary:disabled{opacity:.45;cursor:not-allowed}
-.err{font-size:13px;color:var(--danger);margin-top:8px;min-height:16px;display:flex;align-items:center;gap:6px}
+.fg label{display:block;font-size:13px;color:#374151;margin-bottom:5px;font-weight:500}
+.fg input{width:100%;padding:11px 14px;border:1.5px solid #e5e7eb;border-radius:var(--r);background:#f9fafb;color:#111;font-size:15px;outline:none;transition:border-color .2s,box-shadow .2s}
+.fg input::placeholder{color:#9ca3af}
+.fg input:focus{border-color:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,0.1);background:#fff}
+.remember-row{display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.remember-row input[type=checkbox]{width:16px;height:16px;accent-color:#16a34a;cursor:pointer}
+.remember-row label{font-size:13px;color:#6b7280;cursor:pointer}
+.btn-primary{width:100%;padding:14px 20px;background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;border:2.5px solid #16a34a;border-radius:var(--r);font-size:17px;font-weight:700;cursor:pointer;margin-top:.5rem;letter-spacing:2px;font-family:'Amiri',serif;transition:background .35s ease,color .35s ease,box-shadow .35s ease,border-color .35s,transform .1s;box-shadow:0 4px 18px rgba(22,163,74,0.4)}
+.btn-primary:hover{background:#fff;color:#16a34a;border-color:#16a34a;box-shadow:0 6px 28px rgba(22,163,74,0.25);transform:translateY(-1px)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.err{font-size:13px;color:#dc2626;margin-top:8px;min-height:16px;display:flex;align-items:center;gap:6px}
 .shake{animation:shake .4s ease}
 @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
-
 /* ===== APP LAYOUT ===== */
 #appPage{display:none;min-height:100vh;flex-direction:column}
 .topbar{background:var(--surface);border-bottom:0.5px solid var(--border);padding:0 1.5rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
@@ -147,6 +170,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 <!-- ===== LOGIN ===== -->
 <div id="loginPage">
   <div class="login-card" id="loginCard">
+
+    <div class="arabic-top">
+      <div class="arabic-basmala">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+    </div>
+    <div class="arabic-float af1">سُبْحَانَ اللَّه</div>
+    <div class="arabic-float af2">اللَّهُ أَكْبَر</div>
+    <div class="arabic-float af3">الْحَمْدُ لِلَّه</div>
+    <div class="arabic-float af4">اقْرَأْ</div>
+    <div class="arabic-float af5">سُبْحَانَ اللَّه</div>
+    <div class="arabic-float af6">اللَّهُ أَكْبَر</div>
+    <div class="arabic-float af7">الْحَمْدُ لِلَّه</div>
+    <div class="arabic-float af8">اقْرَأْ</div>
+    <div class="arabic-float af-madinam">مَدِينَتِي</div>
+    <div class="arabic-float af-nur">نُورُ وَجْهِي</div>
+
     <div class="brand">
       <div class="brand-icon"><i class="ti ti-books"></i></div>
       <div>
@@ -154,11 +192,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
         <div class="brand-sub">Shaxsiy kitob to'plami</div>
       </div>
     </div>
+
     <div class="fg">
       <label>Parol</label>
-      <input type="password" id="passInput" placeholder="Parolni kiriting" onkeydown="if(event.key==='Enter')doLogin()" autofocus/>
+      <input type="password" id="passInput" placeholder="Bismillah... parolni kiriting" onkeydown="if(event.key==='Enter')doLogin()" autofocus/>
     </div>
-    <button class="btn-primary" id="loginBtn" onclick="doLogin()">Kirish</button>
+    <div class="remember-row">
+      <input type="checkbox" id="rememberMe" checked/>
+      <label for="rememberMe">Meni eslab qol</label>
+    </div>
+    <button class="btn-primary" id="loginBtn" onclick="doLogin()">✦ Kirish ✦</button>
     <div class="err" id="loginErr"></div>
   </div>
 </div>
@@ -300,32 +343,44 @@ async function getLocation(){
   })
 }
 
-async function doLogin(){
-  const val=document.getElementById('passInput').value;
+async function doLogin(auto){
+  const val=auto||document.getElementById('passInput').value;
   const btn=document.getElementById('loginBtn');
   const err=document.getElementById('loginErr');
   if(!val)return;
   if(val!==getConf().pass){
-    err.innerHTML='<i class="ti ti-alert-circle"></i> Parol noto\'g\'ri';
-    document.getElementById('loginCard').classList.add('shake');
-    setTimeout(()=>document.getElementById('loginCard').classList.remove('shake'),400);
-    document.getElementById('passInput').value='';
+    if(!auto){
+      err.innerHTML='<i class="ti ti-alert-circle"></i> Parol noto\'g\'ri';
+      document.getElementById('loginCard').classList.add('shake');
+      setTimeout(()=>document.getElementById('loginCard').classList.remove('shake'),400);
+      document.getElementById('passInput').value='';
+      localStorage.removeItem('mkut_remember');
+    }
     return;
   }
   err.innerHTML='';
-  btn.disabled=true;
-  btn.innerHTML='<span class="spinner"></span> Kirilmoqda...';
+  if(!auto){ btn.disabled=true; btn.innerHTML='<span class="spinner"></span> Kirilmoqda...'; }
+  const remember=document.getElementById('rememberMe');
+  if(remember&&remember.checked) localStorage.setItem('mkut_remember','1');
+  else localStorage.removeItem('mkut_remember');
   if(!curIP) await fetchIP();
   const loc=await getLocation();
   const ua=navigator.userAgent;
   const entry={ id:Date.now(), time:new Date().toISOString(), ip:curIP||'?', browser:getBrowser(ua), os:getOS(ua), location:loc };
   const logs=getLogs(); logs.unshift(entry); saveLogs(logs);
-  btn.disabled=false; btn.textContent='Kirish';
+  if(!auto){ btn.disabled=false; btn.textContent='Kirish'; }
   isFresh=true;
   document.getElementById('loginPage').style.display='none';
   document.getElementById('appPage').style.display='flex';
   renderAll();
 }
+
+(function autoLogin(){
+  if(localStorage.getItem('mkut_remember')==='1'){
+    const saved=getConf().pass;
+    if(saved) doLogin(saved);
+  }
+})();
 
 function doLogout(){
   document.getElementById('appPage').style.display='none';
